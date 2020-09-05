@@ -79,7 +79,12 @@ export default {
             info: "软工 18级",
             other: "班长 ",
           },
-          { name: "蒋佳", avatar: "", info: "软工 18级", other: "副班长 " },
+          {
+            name: "蒋佳",
+            avatar: require("../assets/18-jj-avatar.jpg"),
+            info: "软工 18级",
+            other: "副班长 ",
+          },
           {
             name: "周佳宁",
             avatar: require("../assets/18-zjn-avatar.jpg"),
