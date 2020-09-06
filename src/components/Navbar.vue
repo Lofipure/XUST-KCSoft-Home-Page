@@ -1,43 +1,39 @@
 <template>
   <v-app-bar class="header" id="header" elevation="0">
     <v-row justify="space-around">
-      <v-col sm="4" md="1" lg="4">
+      <v-col sm="2" md="2" lg="4" cols="2">
         <v-row align="center" justify="flex-start">
-          <v-col sm="2">
+          <v-col lg="2">
             <v-avatar>
-              <v-img src="../assets/logo.png" sizes="40 40"></v-img>
+              <v-img src="../assets/logo.png"></v-img>
             </v-avatar>
           </v-col>
-          <v-col class="title-hidden">
+          <v-col class="title-hidden" lg="10">
             <v-toolbar-title>创新学院软件创新班</v-toolbar-title>
           </v-col>
         </v-row>
       </v-col>
-      <v-col sm="6" md="9" lg="6">
-        <v-row justify="flex-end">
+      <v-col sm="8" md="8" lg="8" class="tabs" align-self="center">
+        <v-row>
           <v-col>
-            <v-tabs class="nav-bar-tab-list" background-color="rgba(255,255,255,0)" dark>
-              <v-tab
-                class="nav-bar-tab"
-                v-for="(element,index) in tabs"
-                :key="index"
-                :href="element.href"
-              >
-                <v-row align-content="space-between" class="nav-bar-tab-row">
-                  <v-col sm="3" md="3" lg="3">
-                    <v-icon>{{element.icon}}</v-icon>
-                  </v-col>
-                  <v-col class="title-hidden">{{element.name}}</v-col>
-                </v-row>
-              </v-tab>
-            </v-tabs>
+            <ul>
+              <li v-for="(item, index) in tabs" :key="index">
+                <a :href="item.href" class="tab">
+                  <v-row>
+                    <v-col cols="4">
+                      <v-icon color="white" class="tab-icon">{{item.icon}}</v-icon>
+                    </v-col>
+                    <v-col class="name-hidden tab-name">{{item.name}}</v-col>
+                  </v-row>
+                </a>
+              </li>
+            </ul>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
   </v-app-bar>
 </template>
-
 <script>
 export default {
   name: "NavBar",
@@ -57,6 +53,24 @@ export default {
 </script>
 
 <style scoped>
+.change-black {
+  display: block;
+  color: #000 !important;
+}
+.tab {
+  text-decoration: none;
+}
+.tabs ul li {
+  list-style: none;
+  display: inline-block;
+}
+.tabs ul {
+  display: flex;
+  justify-content: flex-end;
+}
+.tab-name {
+  color: white;
+}
 .header {
   position: fixed;
   top: 0;
@@ -65,27 +79,58 @@ export default {
   color: rgb(255, 255, 255) !important;
   background-color: rgba(255, 255, 255, 0) !important;
 }
-
 .header-bg {
   background: rgba(112, 112, 112, 0.5) !important;
   color: rgb(0, 0, 0) !important;
 }
-.nav-bar-tab-bg {
-  color: rgba(0, 0, 0, 1) !important;
-}
-.nav-bar-tab-list {
-  display: flex;
-  justify-content: flex-end;
-}
+
+/* xs */
 @media screen and (max-width: 600px) {
   .title-hidden {
     display: none;
   }
-  .nav-bar-tab {
-    font-size: 0.5rem;
+  .name-hidden {
+    display: none;
   }
-  .nav-bar-tab-row {
-    width: 20px;
+  .tab {
+    display: inline-block;
+    width: 3rem;
+  }
+}
+/* sm */
+@media screen and (max-width: 960px) and (min-width: 600px) {
+  .title-hidden {
+    display: none;
+  }
+  .name-hidden {
+    display: none;
+  }
+  .tab {
+    display: inline-block;
+    width: 3rem;
+  }
+}
+/* md */
+@media screen and (max-width: 1264px) and (min-width: 960px) {
+  .title-hidden {
+    display: none;
+  }
+  .tab {
+    display: inline-block;
+    width: 6rem;
+  }
+  .tabs ul li {
+    margin-left: 20px;
+  }
+}
+/* lg */
+@media screen and (min-width: 1264px) {
+  .tab {
+    display: inline-block;
+    width: 6rem;
+  }
+  .tabs ul li {
+    margin-left: 20px;
   }
 }
 </style>

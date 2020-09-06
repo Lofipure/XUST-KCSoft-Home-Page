@@ -38,6 +38,23 @@ import Home from "./components/Home";
 import Introduce from "./components/Introduce";
 import About from "./components/About";
 
+const change = () => {
+  let names = document.getElementsByClassName("tab-name");
+  let icons = document.getElementsByClassName("tab-icon");
+  if (window.location.hash === "#home" || window.location.hash === "") {
+    document.getElementById("header").classList.remove("header-bg");
+    for (let i = 0; i < names.length; ++i) {
+      names[i].classList.remove("change-black");
+      icons[i].classList.remove("change-black");
+    }
+  } else {
+    document.getElementById("header").classList.add("header-bg");
+    for (let i = 0; i < names.length; ++i) {
+      names[i].classList.add("change-black");
+      icons[i].classList.add("change-black");
+    }
+  }
+};
 export default {
   name: "App",
 
@@ -56,11 +73,12 @@ export default {
       sectionsColor: ["#fff", "#fff", "#fff", "#fff"],
       navigationTooltips: ["首页", "简介", "建设", "成员"],
       css3: true,
-      afterLoad: () => {
-        window.location.hash === "#home" || window.location.hash === ""
-          ? document.getElementById("header").classList.remove("header-bg")
-          : document.getElementById("header").classList.add("header-bg");
-      },
+      // afterLoad: () => {
+      //   window.location.hash === "#home" || window.location.hash === ""
+      //     ? document.getElementById("header").classList.remove("header-bg")
+      //     : document.getElementById("header").classList.add("header-bg");
+      // },
+      afterLoad: change,
     },
     fab: false,
   }),
