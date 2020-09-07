@@ -203,7 +203,6 @@ export default {
   .about-container {
     background: url("../assets/about-bg.png") no-repeat;
     background-size: 100% auto;
-    /* padding-top: 8%; */
     background-position-y: 40%;
   }
   .about-wrapper {
@@ -212,6 +211,9 @@ export default {
   .mobile-text {
     text-align: center;
     font-size: 1.2rem;
+  }
+  .member-info {
+    font-size: 0.4rem;
   }
 }
 @media screen and (min-width: 600px) {

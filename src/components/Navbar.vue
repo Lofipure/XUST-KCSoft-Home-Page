@@ -21,7 +21,7 @@
                 <a :href="item.href" class="tab">
                   <v-row>
                     <v-col cols="4">
-                      <v-icon color="white" class="tab-icon">{{item.icon}}</v-icon>
+                      <v-icon class="tab-icon" v-bind:color="iconColor">{{item.icon}}</v-icon>
                     </v-col>
                     <v-col class="name-hidden tab-name">{{item.name}}</v-col>
                   </v-row>
@@ -38,6 +38,7 @@
 export default {
   name: "NavBar",
   data: () => ({
+    iconColor: "white",
     tabs: [
       { name: "首页", icon: "mdi-home", href: "#home" },
       { name: "简介", icon: "mdi-android-messages", href: "#introduce" },
@@ -49,6 +50,28 @@ export default {
       },
     ],
   }),
+  mounted() {
+    onhashchange = () => {
+      let names = document.getElementsByClassName("tab-name");
+      if (window.location.hash === "#home" || window.location.hash === "") {
+        this.iconColor = "white";
+        document.getElementById("header").classList.remove("header-bg");
+        for (let i = 0; i < names.length; ++i) {
+          for (let i = 0; i < names.length; ++i) {
+            names[i].classList.remove("change-black");
+          }
+        }
+      } else {
+        this.iconColor = "black";
+        document.getElementById("header").classList.add("header-bg");
+        for (let i = 0; i < names.length; ++i) {
+          for (let i = 0; i < names.length; ++i) {
+            names[i].classList.add("change-black");
+          }
+        }
+      }
+    };
+  },
 };
 </script>
 
@@ -80,7 +103,7 @@ export default {
   background-color: rgba(255, 255, 255, 0) !important;
 }
 .header-bg {
-  background: rgba(112, 112, 112, 0.5) !important;
+  background: rgba(222, 222, 222, 0.5) !important;
   color: rgb(0, 0, 0) !important;
 }
 

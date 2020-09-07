@@ -1,5 +1,28 @@
 <template>
   <v-app>
+    <v-dialog v-model="joinModel" content-class="model-window">
+      <v-card class="ma-auto">
+        <v-card-title>校软件创新实验室</v-card-title>
+        <v-card-text class="text-center">只要你热爱学习、热爱计算机软件编程、热爱创新，我们就欢迎你的加入！</v-card-text>
+        <v-card-text class="text-center">扫描以下二维码加入招新群了解更多。</v-card-text>
+        <v-card-text class="text-center">
+          <v-img src="./assets/group-code.png" width="150px" class="ma-auto"></v-img>
+        </v-card-text>
+        <v-card-text class="text-center">招新群号:1087849189</v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" class="ma-auto" @click="joinModel=false">我知道了，这就去参加!</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog content-class="model-window" v-model="formModel">
+      <v-card class="ma-auto">
+        <v-card-title>校软件创新实验室</v-card-title>
+        <v-card-text>还未到报名时间，请注意群通知。</v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" class="ma-auto" @click="formModel=false">好哒，我这就去看群！</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <v-speed-dial bottom right v-model="fab" direction="left" fixed class="float-btn">
       <template v-slot:activator>
         <v-btn dark color="rgba(34, 38, 75, 1)" fab>
@@ -9,10 +32,10 @@
           <span v-else>加入</span>
         </v-btn>
       </template>
-      <v-btn fab dark small color="green">
+      <v-btn fab dark small color="green" @click.stop="formModel = true">
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
-      <v-btn fab dark small color="indigo">
+      <v-btn fab dark small color="indigo" @click.stop="joinModel = true">
         <v-icon>mdi-account-multiple-plus</v-icon>
       </v-btn>
     </v-speed-dial>
@@ -38,23 +61,6 @@ import Home from "./components/Home";
 import Introduce from "./components/Introduce";
 import About from "./components/About";
 
-const change = () => {
-  let names = document.getElementsByClassName("tab-name");
-  let icons = document.getElementsByClassName("tab-icon");
-  if (window.location.hash === "#home" || window.location.hash === "") {
-    document.getElementById("header").classList.remove("header-bg");
-    for (let i = 0; i < names.length; ++i) {
-      names[i].classList.remove("change-black");
-      icons[i].classList.remove("change-black");
-    }
-  } else {
-    document.getElementById("header").classList.add("header-bg");
-    for (let i = 0; i < names.length; ++i) {
-      names[i].classList.add("change-black");
-      icons[i].classList.add("change-black");
-    }
-  }
-};
 export default {
   name: "App",
 
@@ -73,14 +79,10 @@ export default {
       sectionsColor: ["#fff", "#fff", "#fff", "#fff"],
       navigationTooltips: ["首页", "简介", "建设", "成员"],
       css3: true,
-      // afterLoad: () => {
-      //   window.location.hash === "#home" || window.location.hash === ""
-      //     ? document.getElementById("header").classList.remove("header-bg")
-      //     : document.getElementById("header").classList.add("header-bg");
-      // },
-      afterLoad: change,
     },
     fab: false,
+    joinModel: false,
+    formModel: false,
   }),
 };
 </script>
@@ -94,5 +96,17 @@ export default {
 .fp-tooltip,
 .fp-right {
   color: #000 !important;
+}
+
+/* @media screen and (max-width: 600px) {
+  .model-window {
+    width: 80%;
+  }
+} */
+
+@media screen and (min-width: 600px) {
+  .model-window {
+    width: 50% !important;
+  }
 }
 </style>
