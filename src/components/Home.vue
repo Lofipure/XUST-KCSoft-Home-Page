@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="top">
         <div class="title-ccontainer">
-          <div class="title-container-cn">我摸到了梦，也看到了光。</div>
+          <div class="title-container-cn">想一句合适的文案。</div>
           <div class="title-container-en">KEEP CODING.</div>
         </div>
       </div>
@@ -25,7 +25,7 @@ export default {
   box-sizing: border-box;
 }
 .wrapper {
-  background: rgba(115, 122, 184, 0.2);
+  background: rgba(115, 122, 184, 0.3);
   width: 100%;
   height: 100%;
   display: flex;
@@ -54,6 +54,7 @@ export default {
 @media screen and (max-width: 600px) {
   .home {
     background-size: auto 100%;
+    background-position-x: 60%;
   }
   .title-container-cn {
     font-size: 1.6rem;
@@ -75,6 +76,7 @@ export default {
   }
   .home {
     background-size: 100% auto;
+    background-position-y: 80%;
   }
 }
 </style>

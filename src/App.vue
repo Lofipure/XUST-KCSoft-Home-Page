@@ -47,7 +47,7 @@
       <div class="section">
         <Introduce />
       </div>
-      <div class="section">wwt 's part</div>
+      <div class="section">WWT's Part</div>
       <div class="section">
         <About />
       </div>
@@ -97,12 +97,6 @@ export default {
 .fp-right {
   color: #000 !important;
 }
-
-/* @media screen and (max-width: 600px) {
-  .model-window {
-    width: 80%;
-  }
-} */
 
 @media screen and (min-width: 600px) {
   .model-window {

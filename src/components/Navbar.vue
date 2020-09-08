@@ -51,23 +51,33 @@ export default {
     ],
   }),
   mounted() {
+    let names = document.getElementsByClassName("tab-name");
+    if (window.location.hash === "#home" || window.location.hash === "") {
+      this.iconColor = "white";
+      document.getElementById("header").classList.remove("header-bg");
+      for (let i = 0; i < names.length; ++i) {
+        names[i].classList.remove("change-black");
+      }
+    } else {
+      this.iconColor = "black";
+      document.getElementById("header").classList.add("header-bg");
+      for (let i = 0; i < names.length; ++i) {
+        names[i].classList.add("change-black");
+      }
+    }
     onhashchange = () => {
       let names = document.getElementsByClassName("tab-name");
       if (window.location.hash === "#home" || window.location.hash === "") {
         this.iconColor = "white";
         document.getElementById("header").classList.remove("header-bg");
         for (let i = 0; i < names.length; ++i) {
-          for (let i = 0; i < names.length; ++i) {
-            names[i].classList.remove("change-black");
-          }
+          names[i].classList.remove("change-black");
         }
       } else {
         this.iconColor = "black";
         document.getElementById("header").classList.add("header-bg");
         for (let i = 0; i < names.length; ++i) {
-          for (let i = 0; i < names.length; ++i) {
-            names[i].classList.add("change-black");
-          }
+          names[i].classList.add("change-black");
         }
       }
     };

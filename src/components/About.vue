@@ -146,8 +146,16 @@ export default {
             avatar: require("../assets/18-wwt-avatar.jpg"),
             info: "电信 18级",
           },
-          { name: "陈佳", avatar: "", info: "电信 18级" },
-          { name: "赵文强", avatar: "", info: "电科 18级" },
+          {
+            name: "陈佳",
+            avatar: require("../assets/18-cj-avatar.jpg"),
+            info: "电信 18级",
+          },
+          {
+            name: "赵文强",
+            avatar: require("../assets/18-zwq-avatar.jpg"),
+            info: "电科 18级",
+          },
           {
             name: "汪子阳",
             avatar: require("../assets/18-wzy.avatar.jpg"),
