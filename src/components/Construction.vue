@@ -2,6 +2,7 @@
   <div class="background">
     <div class="container">
       <div class="marquee-container">
+        <div class="construct-title">部分奖项及荣誉</div>
         <dynamic-marquee reverse direction="row" :repeatMargin="50">
           <div class="marquee-wrapper">
             <v-card v-for="photo in photos" :key="photo" class="mx-8">
@@ -243,6 +244,13 @@ export default {
   .container {
     background-color: rgba(255, 255, 255, 0.6);
   }
+  .construct-title {
+    font-size: 1.3rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    color: rgb(255, 255, 255);
+    padding: 0.8rem;
+  }
 }
 @media screen and (min-width: 600px) {
   /* PC端  */
@@ -254,6 +262,9 @@ export default {
   }
   .honor {
     height: 360px;
+  }
+  .construct-title {
+    display: none;
   }
 }
 </style>
