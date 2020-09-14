@@ -25,17 +25,17 @@
     </v-dialog>
     <v-speed-dial bottom right v-model="fab" direction="left" fixed class="float-btn">
       <template v-slot:activator>
-        <v-btn dark color="rgba(34, 38, 75, 1)" fab>
+        <v-btn dark color="indigo" fab large>
           <span v-if="fab">
             <v-icon>mdi-close</v-icon>
           </span>
-          <span v-else>加入</span>
+          <span v-else>加入<br>我们</span>
         </v-btn>
       </template>
-      <v-btn fab dark small color="green" @click.stop="formModel = true">
+      <v-btn fab dark color="green" @click.stop="formModel = true">
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
-      <v-btn fab dark small color="indigo" @click.stop="joinModel = true">
+      <v-btn fab dark color="indigo" @click.stop="joinModel = true">
         <v-icon>mdi-account-multiple-plus</v-icon>
       </v-btn>
     </v-speed-dial>
@@ -47,7 +47,9 @@
       <div class="section">
         <Introduce />
       </div>
-      <div class="section">WWT's Part</div>
+      <div class="section">
+        <Construction/>
+      </div>
       <div class="section">
         <About />
       </div>
@@ -60,11 +62,13 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Introduce from "./components/Introduce";
 import About from "./components/About";
+import Construction from '@/components/Construction';
 
 export default {
   name: "App",
 
   components: {
+    Construction,
     Navbar,
     Home,
     Introduce,
@@ -84,6 +88,7 @@ export default {
     joinModel: false,
     formModel: false,
   }),
+
 };
 </script>
 
