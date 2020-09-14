@@ -220,8 +220,10 @@ export default {
     text-align: center;
     font-size: 1.2rem;
   }
-  .member-info {
-    font-size: 0.4rem;
+  .member-info,
+  .member-name,
+  .member-other {
+    font-size: 0.5rem;
   }
 }
 @media screen and (min-width: 600px) {
