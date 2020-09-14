@@ -2,7 +2,7 @@
   <div class="home">
     <div class="wrapper">
       <div class="top">
-        <div class="title-ccontainer">
+        <div class="title-container">
           <div class="title-container-cn">想一句合适的文案。</div>
           <div class="title-container-en">KEEP CODING.</div>
         </div>
