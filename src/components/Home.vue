@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="top">
         <div class="title-container">
-          <div class="title-container-cn">想一句合适的文案。</div>
+          <div class="title-container-cn">西安科技大学软件创新实验室</div>
           <div class="title-container-en">KEEP CODING.</div>
         </div>
       </div>

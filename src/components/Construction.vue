@@ -1,31 +1,21 @@
 <template>
   <div class="background">
-    <div class="marquee-container">
-      <dynamic-marquee
-          reverse
-          direction='row'
-          :repeatMargin='50'
-      >
-        <div class="marquee-wrapper">
-          <v-card
-              v-for='photo in photos'
-              :key='photo'
-              class='mx-8'
-          >
-            <v-img
-                height='240'
-                :src='photo'
-            >
-            </v-img>
-          </v-card>
-        </div>
-      </dynamic-marquee>
+    <div class="container">
+      <div class="marquee-container">
+        <dynamic-marquee reverse direction="row" :repeatMargin="50">
+          <div class="marquee-wrapper">
+            <v-card v-for="photo in photos" :key="photo" class="mx-8">
+              <v-img height="240" :src="photo" class="honor"></v-img>
+            </v-card>
+          </div>
+        </dynamic-marquee>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import DynamicMarquee from 'vue-dynamic-marquee';
+import DynamicMarquee from "vue-dynamic-marquee";
 
 // competition
 import CCCCPrizesPhoto from "../assets/award/cccc-prizes-photo.jpg"; // CCCC 竞赛证书
@@ -67,7 +57,6 @@ import WzhZzqEiPaper from "../assets/award/wzh,zzq-ei-paper.png"; // 王子涵�
 import Wzh2018NECCSNationalSecond from "../assets/award/wzh-2018-neccs-national-second.jpg"; // 王子涵2018NECCS国二
 import YycNationalScholarship from "../assets/award/yyc-national-scholarship.png"; // 余以春国家奖学金
 
-
 // contest
 import CCCCPhoto from "../assets/award/cccc-photo.jpg"; // 2019CCCC团体照片
 import ICPC2018ECFinal from "../assets/award/icpc-2018-ec-final.jpg"; // 2018ECFinal陈航队照片
@@ -80,164 +69,191 @@ import ProvincalLanqiao2019Photo from "../assets/award/provincal-lanqiao-2019pho
 import ICPCECFinalContest from "../assets/award/icpc-ec-final-contest.jpg"; // 2018ECFinal现场照片
 
 const GLOBAL_PHOTO = [
-      ///////////////////////
-      // BEGIN competition //
-      ///////////////////////
+  ///////////////////////
+  // BEGIN competition //
+  ///////////////////////
 
-      // 丁磊2019蓝桥省三
-      Dl2019LanqiaoProvincalThird,
-      // 蒋佳CCCC省三
-      Jj2019CCCCProvincalThird,
-      // 王钦弘2019ACM全国邀请赛铜
-      Wqh2019ACMNationalInvitationalThird,
-      // CCCC 竞赛证书
-      CCCCPrizesPhoto,
-      // 祖传Kinect
-      KinectCsiet,
-      // 丁磊CCCC省三
-      DlCCCCProvincalThird,
-      // 余以春2019ACM全国邀请赛铜
-      YycIcpcInvitationBronze,
-      // 王钦弘2018蓝桥省一
-      Wqh2018LanqiaoProvincalFirst,
-      // 王钦弘2019蓝桥省一
-      Wqh2019LanqiaoProvincalFirst,
-      // 丁磊2018蓝桥省二
-      Dl2018LanqiaoProvincalSecond,
-      // 2019ACM省赛铜证明
-      Team2019ACMNationalHonorable,
-      // 2019ACM全国邀请赛铜牌队伍证明
-      Team2019ACMNationalInvitationalThird,
-      // 2019ACM省赛铜证明
-      Team2019ACMProvincalThird,
-      // 蒋佳蓝桥国优
-      Jj2019LanqiaoNationalHonorable,
-      // 蒋佳蓝桥省一
-      Jj2019LanqiaoProvincalThird,
-      // 刘鑫2019蓝桥省三
-      Lx2019LanqiaoProvincalThird,
-      // 罗心怡2018蓝桥省二
-      Lxy2018LanqiaoProvincalSecond,
-      // 罗心怡CCCC省三
-      Lxy2019CCCCProvincalThird,
-      // 罗心怡2019蓝桥省二
-      Lxy2019LanqiaoProvincalSecond,
-      // 刘尹强CCCC省三
-      Lyq2019CCCCTeamThird,
-      // 刘尹强2019蓝桥省二
-      Lyq2019LanqiaoSecond,
-      // 余以春CCCC团三
-      YycGplpBronze,
-      // 吴文韬2019蓝桥省一
-      Wwt2019LanqiaoProvincalFirst,
-      // 王子涵2018蓝桥省三
-      Wzh2018LanqiaoProvincalThird,
-      /////////////////////
-      // END competition //
-      /////////////////////
+  // 丁磊2019蓝桥省三
+  Dl2019LanqiaoProvincalThird,
+  // 蒋佳CCCC省三
+  Jj2019CCCCProvincalThird,
+  // 王钦弘2019ACM全国邀请赛铜
+  Wqh2019ACMNationalInvitationalThird,
+  // CCCC 竞赛证书
+  CCCCPrizesPhoto,
+  // 祖传Kinect
+  KinectCsiet,
+  // 丁磊CCCC省三
+  DlCCCCProvincalThird,
+  // 余以春2019ACM全国邀请赛铜
+  YycIcpcInvitationBronze,
+  // 王钦弘2018蓝桥省一
+  Wqh2018LanqiaoProvincalFirst,
+  // 王钦弘2019蓝桥省一
+  Wqh2019LanqiaoProvincalFirst,
+  // 丁磊2018蓝桥省二
+  Dl2018LanqiaoProvincalSecond,
+  // 2019ACM省赛铜证明
+  Team2019ACMNationalHonorable,
+  // 2019ACM全国邀请赛铜牌队伍证明
+  Team2019ACMNationalInvitationalThird,
+  // 2019ACM省赛铜证明
+  Team2019ACMProvincalThird,
+  // 蒋佳蓝桥国优
+  Jj2019LanqiaoNationalHonorable,
+  // 蒋佳蓝桥省一
+  Jj2019LanqiaoProvincalThird,
+  // 刘鑫2019蓝桥省三
+  Lx2019LanqiaoProvincalThird,
+  // 罗心怡2018蓝桥省二
+  Lxy2018LanqiaoProvincalSecond,
+  // 罗心怡CCCC省三
+  Lxy2019CCCCProvincalThird,
+  // 罗心怡2019蓝桥省二
+  Lxy2019LanqiaoProvincalSecond,
+  // 刘尹强CCCC省三
+  Lyq2019CCCCTeamThird,
+  // 刘尹强2019蓝桥省二
+  Lyq2019LanqiaoSecond,
+  // 余以春CCCC团三
+  YycGplpBronze,
+  // 吴文韬2019蓝桥省一
+  Wwt2019LanqiaoProvincalFirst,
+  // 王子涵2018蓝桥省三
+  Wzh2018LanqiaoProvincalThird,
+  /////////////////////
+  // END competition //
+  /////////////////////
 
-      ///////////////////////
-      // BEGIN prize //
-      ///////////////////////
-      // 王子涵，张真谦EI论文
-      WzhZzqEiPaper,
-      // 余以春国家奖学金
-      YycNationalScholarship,
-      // 罗心怡2018外研社国特
-      LxyEnglishReadingSpecial,
-      // 纪雨鑫2019计设三等
-      Jyx2019CucdcThird,
-      // 纪雨鑫2019英语国三
-      Jyx2019NeccsSecond,
-      // 罗心怡2018外研社省三
-      Lxy2018FltrpProvincalThird,
-      // 罗心怡2018NECCS国一
-      Lxy2018NeccsNationalFirst,
-      // 罗心怡2019NECCS国一
-      Lxy2019NeccsNationalFirst,
-      // 刘尹强2018数学竞赛国二
-      Lyq2018CmathcNationalSecond,
-      // 刘尹强2018NECCS国三
-      Lyq2018NECCSNationalThird,
-      // 刘尹强2019NECCS国三
-      Lyq2019NECCSNationalThird,
-      // 王子涵2018NECCS国二
-      Wzh2018NECCSNationalSecond,
-      /////////////////////
-      // END prize //
-      /////////////////////
+  ///////////////////////
+  // BEGIN prize //
+  ///////////////////////
+  // 王子涵，张真谦EI论文
+  WzhZzqEiPaper,
+  // 余以春国家奖学金
+  YycNationalScholarship,
+  // 罗心怡2018外研社国特
+  LxyEnglishReadingSpecial,
+  // 纪雨鑫2019计设三等
+  Jyx2019CucdcThird,
+  // 纪雨鑫2019英语国三
+  Jyx2019NeccsSecond,
+  // 罗心怡2018外研社省三
+  Lxy2018FltrpProvincalThird,
+  // 罗心怡2018NECCS国一
+  Lxy2018NeccsNationalFirst,
+  // 罗心怡2019NECCS国一
+  Lxy2019NeccsNationalFirst,
+  // 刘尹强2018数学竞赛国二
+  Lyq2018CmathcNationalSecond,
+  // 刘尹强2018NECCS国三
+  Lyq2018NECCSNationalThird,
+  // 刘尹强2019NECCS国三
+  Lyq2019NECCSNationalThird,
+  // 王子涵2018NECCS国二
+  Wzh2018NECCSNationalSecond,
+  /////////////////////
+  // END prize //
+  /////////////////////
 
-      ///////////////////
-      // BEGIN photo   //
-      ///////////////////
+  ///////////////////
+  // BEGIN photo   //
+  ///////////////////
 
-      // 2019CCCC团体照片
-      CCCCPhoto,
-      // 2018ECFinal陈航队照片
-      ICPC2018ECFinal,
-      // 2018ECFinal团体照片
-      ICPC2018ECFinalPhoto,
-      // 2019全国邀请赛王钦弘组
-      ICPC2019ACMNationalInvitationalThirdPhoto,
-      // 2019ACM全国邀请赛团体照片
-      ICPC2019ACMNationalPhoto,
-      // 2018ECFinal现场照片
-      ICPCECFinalContest,
-      // 2019蓝桥省赛合照
-      ProvincalLanqiao2019Photo,
-      // 2019蓝桥国赛背景照片
-      NationalLanqiao2019Photo,
-      // 2019ACM陕西省赛团体照片
-      ICPC2019ACMPhoto,
-      /////////////////
-      // END photo   //
-      /////////////////
-    ]
+  // 2019CCCC团体照片
+  CCCCPhoto,
+  // 2018ECFinal陈航队照片
+  ICPC2018ECFinal,
+  // 2018ECFinal团体照片
+  ICPC2018ECFinalPhoto,
+  // 2019全国邀请赛王钦弘组
+  ICPC2019ACMNationalInvitationalThirdPhoto,
+  // 2019ACM全国邀请赛团体照片
+  ICPC2019ACMNationalPhoto,
+  // 2018ECFinal现场照片
+  ICPCECFinalContest,
+  // 2019蓝桥省赛合照
+  ProvincalLanqiao2019Photo,
+  // 2019蓝桥国赛背景照片
+  NationalLanqiao2019Photo,
+  // 2019ACM陕西省赛团体照片
+  ICPC2019ACMPhoto,
+  /////////////////
+  // END photo   //
+  /////////////////
+];
 
 export default {
   name: "Construction",
   components: {
-    'dynamic-marquee': DynamicMarquee,
+    "dynamic-marquee": DynamicMarquee,
   },
   data() {
     return {
       speed: {
-        type: 'pps',
+        type: "pps",
         duration: 60,
       },
       pause: false,
       photos: GLOBAL_PHOTO,
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style scoped>
+.background {
+  background: url("../assets/construction-background.png") no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.marquee-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 100%;
+}
+.marquee-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  /* 移动端 */
   .background {
-    background: url("../assets/construction-background.png") no-repeat center;
-    width: 100vw;
-    height: 100vh;
-    background-size: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-
+    background-size: 100% auto;
+    background-position-y: 90%;
   }
-  .marquee-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    height: 60%;
-    width: 100%;
+  .container {
+    background-color: rgba(255, 255, 255, 0.6);
   }
-  .marquee-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
+}
+@media screen and (min-width: 600px) {
+  /* PC端  */
+  .background {
+    background: url("../assets/construction-background-pc.png") no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 80%;
   }
+  .honor {
+    height: 360px;
+  }
+}
 </style>

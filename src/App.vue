@@ -3,6 +3,7 @@
     <v-dialog v-model="joinModel" content-class="model-window">
       <v-card class="ma-auto">
         <v-card-title>校软件创新实验室</v-card-title>
+        <v-card-text class="text-center">无论你来自哪里，是什么专业。</v-card-text>
         <v-card-text class="text-center">只要你热爱学习、热爱计算机软件编程、热爱创新，我们就欢迎你的加入！</v-card-text>
         <v-card-text class="text-center">扫描以下二维码加入招新群了解更多。</v-card-text>
         <v-card-text class="text-center">
@@ -29,7 +30,10 @@
           <span v-if="fab">
             <v-icon>mdi-close</v-icon>
           </span>
-          <span v-else>加入<br>我们</span>
+          <span v-else>
+            加入
+            <br />我们
+          </span>
         </v-btn>
       </template>
       <v-btn fab dark color="green" @click.stop="formModel = true">
@@ -48,7 +52,7 @@
         <Introduce />
       </div>
       <div class="section">
-        <Construction/>
+        <Construction />
       </div>
       <div class="section">
         <About />
@@ -62,7 +66,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Introduce from "./components/Introduce";
 import About from "./components/About";
-import Construction from '@/components/Construction';
+import Construction from "@/components/Construction";
 
 export default {
   name: "App",
@@ -88,7 +92,6 @@ export default {
     joinModel: false,
     formModel: false,
   }),
-
 };
 </script>
 
