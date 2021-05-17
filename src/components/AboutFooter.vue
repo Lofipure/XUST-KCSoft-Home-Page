@@ -6,7 +6,7 @@
       <v-row class="about-footer-title">地址：西安科技大学煤炭科技中心#306室</v-row>
       <v-row class="about-footer-title">
         <img src="../assets/beian.png" alt="备案" class="beian" />
-        <a href class="about-footer-link">陕ICP备 19005593号-3</a>
+        <a href="https://beian.miit.gov.cn/" class="about-footer-link">陕ICP备 19005593号-3</a>
       </v-row>
     </v-container>
   </div>
